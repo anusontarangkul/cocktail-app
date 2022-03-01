@@ -1,5 +1,13 @@
-# cocktail-app
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Full stack application that allows you to save your favorite cocktails
+## Getting Started
 
-![screenshot](./screenshot.png)
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+![screensht](/screenshot.png)
