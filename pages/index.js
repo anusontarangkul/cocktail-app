@@ -1,11 +1,18 @@
+import React, { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Nav from '../components/Nav/Nav'
 import SearchBar from '../components/SearchBar/SearchBar'
 import SearchResults from '../components/SearchResults/SearchResults'
+import TextResults from '../components/TextResults/TextResults'
 
 export default function Home() {
+  const [cocktails, setCocktails] = useState([]);
+  const [search, setSearch] = useState('');
+
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,8 +23,10 @@ export default function Home() {
 
       <main className={styles.main}>
         <Nav />
-        <SearchBar />
-        <SearchResults />
+        <SearchBar setCocktails={setCocktails} setSearch={setSearch} search={search} />
+        <TextResults cocktails={cocktails} search={search} />
+        <SearchResults cocktails={cocktails} />
+
       </main>
 
     </div>
