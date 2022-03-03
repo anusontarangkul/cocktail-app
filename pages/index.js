@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Nav from '../components/Nav/Nav'
+import SearchBar from '../components/SearchBar/SearchBar'
+import SearchResults from '../components/SearchResults/SearchResults'
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <Nav />
+        <SearchBar />
+        <SearchResults />
       </main>
 
     </div>
