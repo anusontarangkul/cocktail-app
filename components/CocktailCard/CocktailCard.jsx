@@ -5,9 +5,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useRouter } from 'next/router';
 
 export default function CocktailCard({ cocktail }) {
-  console.log(cocktail);
+  const router = useRouter();
+  const handleMoreInfoClick = () => {
+    console.log(cocktail.idDrink);
+    router.push(`/cocktail/${cocktail.idDrink}`);
+  };
   return (
     <Card sx={{ width: 300, margin: '1rem auto 0rem auto' }}>
       <CardMedia
@@ -27,7 +32,9 @@ export default function CocktailCard({ cocktail }) {
       </CardContent>
       <CardActions>
         <Button size='small'>Save</Button>
-        <Button size='small'>More Info</Button>
+        <Button size='small' onClick={handleMoreInfoClick}>
+          More Info
+        </Button>
       </CardActions>
     </Card>
   );
