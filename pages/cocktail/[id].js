@@ -2,6 +2,9 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCocktail } from '../../redux/singleCocktail';
+import Nav from '../../components/Nav/Nav'
+import styles from './cocktail.module.css'
+import IngredientsTag from '../../components/IngredientsTag/IngredientsTag'
 
 const Cocktail = () => {
     const router = useRouter();
@@ -27,11 +30,31 @@ const Cocktail = () => {
     if (!status || status === "loading") {
         return <p>loading</p>
     }
-    console.log(results)
+    let index = 1;
+    let ingredientArray = [];
+    while (results.drinks[0]['strIngredient' + index]) {
+        console.log(index)
+        ingredientArray.push({ name: results.drinks[0]['strIngredient' + index], amount: results.drinks[0]['strMeasure' + index] ? results.drinks[0]['strMeasure' + index] : "A dash " });
+        index++;
+    }
+    console.log('results', results)
+    console.log(ingredientArray)
     return (
-        <div>
-            <h1>{results.drinks[0].strDrink}</h1>
-        </div>
+        <>
+            <Nav />
+            <main className={styles.container}>
+                <h1>{results.drinks[0].strDrink}</h1>
+                <img
+                    className={styles.img}
+                    src={results.drinks[0].strDrinkThumb}
+                    alt={results.drinks[0].strDrink}
+                />
+                <h2>Ingredients</h2>
+                {ingredientArray.map((ingredient, id) => {
+                    return <IngredientsTag name={ingredient.name} amount={ingredient.amount} key={id} />
+                })}
+            </main>
+        </>
     )
 }
 
