@@ -1,18 +1,16 @@
 import React from 'react';
 import CocktailCard from '../CocktailCard/CocktailCard';
 import styles from './SearchResults.module.css';
+import { useSelector } from 'react-redux';
 
-const SearchResults = ({ cocktails }) => {
-  console.log('searchresults', cocktails);
-  console.log(typeof cocktails);
-  // cocktails.map((e) => {
-  //   console.log('check');
-  // });
+const SearchResults = () => {
+  const { results } = useSelector((state) => state.cocktail);
+
   return (
     <main>
       <div className={styles.container}>
-        {cocktails.drinks &&
-          cocktails.drinks.map((cocktail, i) => {
+        {results.drinks &&
+          results.drinks.map((cocktail, i) => {
             return <CocktailCard key={i} cocktail={cocktail} />;
           })}
       </div>

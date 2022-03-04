@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import styles from './SearchBar.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCocktails } from '../../redux/cocktail';
 
-const SearchBar = ({ setCocktails, setSearch, search }) => {
+const SearchBar = ({ setCocktails }) => {
+  const [search, setSearch] = useState('');
+  const dispatch = useDispatch();
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log('search', search);
     if (search === '') {
       return;
     }
     try {
-      const response = await fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`
-      );
-      const data = await response.json();
-      console.log(data);
+      dispatch(getCocktails(search));
       setSearch('');
-      setCocktails(data);
     } catch (e) {
       console.log(e);
     }

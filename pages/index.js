@@ -24,7 +24,7 @@ export default function Home() {
       <main className={styles.main}>
         <Nav />
         <SearchBar setCocktails={setCocktails} setSearch={setSearch} search={search} />
-        <TextResults cocktails={cocktails} search={search} />
+        <TextResults />
         <SearchResults cocktails={cocktails} />
 
       </main>

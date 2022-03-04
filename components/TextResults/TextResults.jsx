@@ -1,12 +1,21 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const TextResults = ({ cocktails, search }) => {
-  if (!cocktails.drinks) {
+const TextResults = () => {
+  const { results, display, status } = useSelector((state) => state.cocktail);
+  if (!status) {
     return null;
   }
+  if (status === 'loading') {
+    return <p>loading</p>;
+  }
+
+  // need status for error
   return (
     <div>
-      <p>Showing {cocktails.drinks.length} results:</p>
+      <p>
+        Showing {results.drinks.length} results for {display}
+      </p>
     </div>
   );
 };

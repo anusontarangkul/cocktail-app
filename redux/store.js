@@ -1,5 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
+import cocktailReducer from './cocktail';
 
-export const store = configureStore({
-    reducer: {},
+export default configureStore({
+    reducer: {
+        cocktail: cocktailReducer
+    },
 })
