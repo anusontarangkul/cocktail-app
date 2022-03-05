@@ -10,7 +10,7 @@
 }
 
 .ingredientsContainer {
-  width: 400px;
+  width: 375px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -19,8 +19,14 @@
 .instructionsContainer {
   width: 375px;
   margin-top: 0rem;
+  margin-bottom: 0rem;
 }
 
 .steps {
   margin-bottom: 1rem;
+}
+
+.saveBtn {
+  margin-bottom: 2rem !important;
+  width: 10rem;
 }

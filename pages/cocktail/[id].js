@@ -5,6 +5,8 @@ import { getCocktail } from '../../redux/singleCocktail';
 import Nav from '../../components/Nav/Nav'
 import styles from './cocktail.module.css'
 import IngredientsTag from '../../components/IngredientsTag/IngredientsTag'
+import Button from '@mui/material/Button';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 
 const Cocktail = () => {
     const router = useRouter();
@@ -64,6 +66,7 @@ const Cocktail = () => {
                         return <li key={i} className={styles.steps}>{step}</li>
                     })}
                 </ol>
+                <Button className={styles.saveBtn} variant="contained" startIcon={<BookmarkBorderIcon />}>Save</Button>
             </main>
         </>
     )
