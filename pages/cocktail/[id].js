@@ -39,6 +39,9 @@ const Cocktail = () => {
     }
     console.log('results', results)
     console.log(ingredientArray)
+    console.log(results.drinks[0].strInstructions)
+    let instructionsArray = results.drinks[0].strInstructions.match(/[^\.!\?]+[\.!\?]+/g);
+    console.log(instructionsArray)
     return (
         <>
             <Nav />
@@ -55,6 +58,12 @@ const Cocktail = () => {
                         return <IngredientsTag name={ingredient.name} amount={ingredient.amount} key={id} />
                     })}
                 </div>
+                <h2>Instructions</h2>
+                <ol className={styles.instructionsContainer}>
+                    {instructionsArray.map((step, i) => {
+                        return <li key={i} className={styles.steps}>{step}</li>
+                    })}
+                </ol>
             </main>
         </>
     )

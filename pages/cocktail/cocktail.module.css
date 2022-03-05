@@ -15,3 +15,12 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.instructionsContainer {
+  width: 375px;
+  margin-top: 0rem;
+}
+
+.steps {
+  margin-bottom: 1rem;
+}
