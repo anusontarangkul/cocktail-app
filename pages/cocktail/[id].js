@@ -50,9 +50,11 @@ const Cocktail = () => {
                     alt={results.drinks[0].strDrink}
                 />
                 <h2>Ingredients</h2>
-                {ingredientArray.map((ingredient, id) => {
-                    return <IngredientsTag name={ingredient.name} amount={ingredient.amount} key={id} />
-                })}
+                <div className={styles.ingredientsContainer}>
+                    {ingredientArray.map((ingredient, id) => {
+                        return <IngredientsTag name={ingredient.name} amount={ingredient.amount} key={id} />
+                    })}
+                </div>
             </main>
         </>
     )
