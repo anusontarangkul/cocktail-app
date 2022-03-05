@@ -18,10 +18,8 @@ const Cocktail = () => {
             return
         }
         const cocktailId = router.query.id
-        console.log(cocktailId)
         try {
             dispatch(getCocktail(cocktailId))
-            console.log('dispatched')
         } catch (e) {
             console.log(e)
         }
@@ -29,45 +27,48 @@ const Cocktail = () => {
 
     }, [router.isReady])
 
-    if (!status || status === "loading") {
-        return <p>loading</p>
-    }
+    let instructionsArray
     let index = 1;
     let ingredientArray = [];
-    while (results.drinks[0]['strIngredient' + index]) {
-        console.log(index)
-        ingredientArray.push({ name: results.drinks[0]['strIngredient' + index], amount: results.drinks[0]['strMeasure' + index] ? results.drinks[0]['strMeasure' + index] : "A dash " });
-        index++;
+
+    if (status === 'success') {
+        while (results.drinks[0]['strIngredient' + index]) {
+            ingredientArray.push({ name: results.drinks[0]['strIngredient' + index], amount: results.drinks[0]['strMeasure' + index] ? results.drinks[0]['strMeasure' + index] : "A dash " });
+            index++;
+        }
+        instructionsArray = results.drinks[0].strInstructions.match(/[^\.!\?]+[\.!\?]+/g);
+
     }
-    console.log('results', results)
-    console.log(ingredientArray)
-    console.log(results.drinks[0].strInstructions)
-    let instructionsArray = results.drinks[0].strInstructions.match(/[^\.!\?]+[\.!\?]+/g);
-    console.log(instructionsArray)
+
     return (
         <>
             <Nav />
-            <main className={styles.container}>
-                <h1>{results.drinks[0].strDrink}</h1>
-                <img
-                    className={styles.img}
-                    src={results.drinks[0].strDrinkThumb}
-                    alt={results.drinks[0].strDrink}
-                />
-                <h2>Ingredients</h2>
-                <div className={styles.ingredientsContainer}>
-                    {ingredientArray.map((ingredient, id) => {
-                        return <IngredientsTag name={ingredient.name} amount={ingredient.amount} key={id} />
-                    })}
-                </div>
-                <h2>Instructions</h2>
-                <ol className={styles.instructionsContainer}>
-                    {instructionsArray.map((step, i) => {
-                        return <li key={i} className={styles.steps}>{step}</li>
-                    })}
-                </ol>
-                <Button className={styles.saveBtn} variant="contained" startIcon={<BookmarkBorderIcon />}>Save</Button>
-            </main>
+            {(status === "loading") &&
+                <p>loading</p>
+            }
+            {(status === 'success') &&
+                <main className={styles.container}>
+                    <h1>{results.drinks[0].strDrink}</h1>
+                    <img
+                        className={styles.img}
+                        src={results.drinks[0].strDrinkThumb}
+                        alt={results.drinks[0].strDrink}
+                    />
+                    <h2>Ingredients</h2>
+                    <div className={styles.ingredientsContainer}>
+                        {ingredientArray.map((ingredient, id) => {
+                            return <IngredientsTag name={ingredient.name} amount={ingredient.amount} key={id} />
+                        })}
+                    </div>
+                    <h2>Instructions</h2>
+                    <ol className={styles.instructionsContainer}>
+                        {instructionsArray.map((step, i) => {
+                            return <li key={i} className={styles.steps}>{step}</li>
+                        })}
+                    </ol>
+                    <Button className={styles.saveBtn} variant="contained" startIcon={<BookmarkBorderIcon />}>Save</Button>
+                </main>
+            }
         </>
     )
 }
