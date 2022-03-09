@@ -1,8 +1,3 @@
-
-import { initializeApp } from "firebase/app";
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from "firebase/firestore";
-
 const firebaseConfig = {
     apiKey: "AIzaSyDycdBORxQ1bJ3QL6BBpLyrBy0iGVRkCRQ",
     authDomain: "cocktail-afeae.firebaseapp.com",
@@ -13,11 +8,4 @@ const firebaseConfig = {
     measurementId: "G-SZNCDWKGVV"
 };
 
-
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-export const authentication = getAuth(app)
-
-
-// const firebaseApp = firebase.initializeApp(firebaseConfig)
-// const auth
+export default firebaseConfig

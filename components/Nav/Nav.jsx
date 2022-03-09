@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SearchBar from '../SearchBar/SearchBar';
+import SideBar from '../SideBar/SideBar';
 import { useRouter } from 'next/router';
 
 const pages = ['Search', 'Saved'];
@@ -112,7 +113,8 @@ const ResponsiveAppBar = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title='Open settings'>
-              <p onClick={handleLogin}>Login</p>
+              <SideBar />
+              {/* <p onClick={handleLogin}>Login</p> */}
               {/* <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
               </IconButton> */}
