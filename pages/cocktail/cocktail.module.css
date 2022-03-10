@@ -30,3 +30,9 @@
   margin-bottom: 2rem !important;
   width: 10rem;
 }
+
+.removeBtn {
+  margin-bottom: 2rem !important;
+  width: 10rem;
+  background-color: cadetblue;
+}
