@@ -4,16 +4,15 @@ import GoogleButton from 'react-google-button';
 import { CocktailState } from '../../CocktailContext';
 import { GoogleAuthProvider, signInWithPopup, signOut } from '@firebase/auth';
 import { auth } from '../../firebase';
-import { useRouter } from 'next/router';
 
 const Content = ({ state, setState, anchor }) => {
-  const router = useRouter();
-  const { user } = CocktailState();
+  const { user, setAlert } = CocktailState();
+
+  function delay(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
 
   const toggleDrawer = (anchor, open) => {
-    console.log('in toggle');
-    console.log('anchor', anchor);
-    console.log('open', open);
     if (
       event.type === 'keydown' &&
       (event.key === 'Tab' || event.key === 'Shift')
@@ -26,40 +25,48 @@ const Content = ({ state, setState, anchor }) => {
 
   const googleProvider = new GoogleAuthProvider();
   const handleSignIn = () => {
-    console.log('anchor', anchor);
-    console.log('state', state);
-
+    toggleDrawer('right', false);
     signInWithPopup(auth, googleProvider)
       .then((res) => {
-        console.log('auth', auth);
-        console.log('signin successful');
-        toggleDrawer('right', false);
+        setAlert({
+          open: true,
+          message: `Login Successful. Welcome ${res.user.displayName}`,
+          type: 'success',
+        });
       })
       .catch((error) => {
-        console.log(error);
-        toggleDrawer(anchor, false);
+        setAlert({
+          open: true,
+          message: error.message,
+          type: 'error',
+        });
       });
   };
-  const handleSignOut = () => {
-    console.log('anchor', anchor);
-    console.log('state', state);
+  const handleSignOut = async () => {
     toggleDrawer('right', false);
+    await delay(100);
     signOut(auth)
       .then(() => {
-        console.log('signed out');
-        console.log('auth', auth);
-        toggleDrawer(anchor, false);
+        setAlert({
+          open: true,
+          message: `Successfully logged out`,
+          type: 'success',
+        });
       })
       .catch((error) => {
-        console.log(error);
+        setAlert({
+          open: true,
+          message: error.message,
+          type: 'error',
+        });
       });
   };
 
   if (user) {
     return (
       <div className={styles.container}>
-        <h3>{user.displayName}</h3>
-        <button className={styles.signOutBtn} onClick={handleSignOut}>
+        <h3 className={styles.heading}>{user.displayName}</h3>
+        <button className={styles.btn} onClick={handleSignOut}>
           Sign Out
         </button>
       </div>
@@ -67,8 +74,8 @@ const Content = ({ state, setState, anchor }) => {
   }
   return (
     <div className={styles.container}>
-      <h3>Login</h3>
-      <GoogleButton className={styles.googleBtn} onClick={handleSignIn} />
+      <h3 className={styles.heading}>Login</h3>
+      <GoogleButton className={styles.btn} onClick={handleSignIn} />
     </div>
   );
 };

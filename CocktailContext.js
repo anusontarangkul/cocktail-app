@@ -24,7 +24,7 @@ const CocktailContext = ({ children }) => {
     }, [])
 
     return (
-        <Cocktail.Provider value={{ user }}>
+        <Cocktail.Provider value={{ user, alert, setAlert, }}>
             {children}
         </Cocktail.Provider>
     )

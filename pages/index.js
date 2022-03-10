@@ -6,7 +6,7 @@ import Nav from '../components/Nav/Nav'
 import SearchBar from '../components/SearchBar/SearchBar'
 import SearchResults from '../components/SearchResults/SearchResults'
 import TextResults from '../components/TextResults/TextResults'
-
+import Alert from '../components/Alert/Alert'
 export default function Home() {
   const [cocktails, setCocktails] = useState([]);
   const [search, setSearch] = useState('');
@@ -26,7 +26,7 @@ export default function Home() {
         <SearchBar setCocktails={setCocktails} setSearch={setSearch} search={search} />
         <TextResults />
         <SearchResults cocktails={cocktails} />
-
+        <Alert />
       </main>
 
     </div>

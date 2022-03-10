@@ -10,7 +10,7 @@
 .googleBtn {
   /* width: 14rem !important;
   height: 3rem !important; */
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
 .signOutBtn {
@@ -20,4 +20,26 @@
   font-family: Roboto, arial, sans-serif;
   font-size: 18px;
   border-radius: 1px;
+}
+
+.btn {
+  margin-top: 1.5rem;
+  width: 15rem;
+  height: 3.125rem;
+  font-family: Roboto, arial, sans-serif;
+  font-size: 18px;
+  border-radius: 1px;
+}
+
+.heading {
+  background-color: blanchedalmond;
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+    0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
 }
