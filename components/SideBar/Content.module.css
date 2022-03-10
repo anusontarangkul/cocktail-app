@@ -8,6 +8,16 @@
 }
 
 .googleBtn {
-  width: 14rem !important;
+  /* width: 14rem !important;
+  height: 3rem !important; */
   margin-top: 2rem;
+}
+
+.signOutBtn {
+  width: 15rem;
+  height: 3.125rem;
+  /* box-shadow: rgb(0 0 0 / 25%) 0px 2px 4px 0px; */
+  font-family: Roboto, arial, sans-serif;
+  font-size: 18px;
+  border-radius: 1px;
 }

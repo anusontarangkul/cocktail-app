@@ -12,6 +12,8 @@ export default function SideBar() {
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
+    console.log('state', state);
+
     if (
       event.type === 'keydown' &&
       (event.key === 'Tab' || event.key === 'Shift')
@@ -49,7 +51,12 @@ export default function SideBar() {
             onClose={toggleDrawer(anchor, false)}
           >
             {/* {list(anchor)} */}
-            <Content />
+            <Content
+              state={state}
+              setState={setState}
+              anchor={anchor}
+              toggleDrawer={toggleDrawer}
+            />
           </Drawer>
         </React.Fragment>
       ))}
