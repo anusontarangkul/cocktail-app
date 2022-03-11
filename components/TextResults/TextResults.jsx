@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import styles from './TextResults.module.css';
 
 const TextResults = () => {
   const { results, display, status } = useSelector((state) => state.cocktail);
@@ -12,11 +13,9 @@ const TextResults = () => {
 
   // need status for error
   return (
-    <div>
-      <p>
-        Showing {results.drinks.length} results for {display}
-      </p>
-    </div>
+    <h3 className={styles.text}>
+      Showing {results.drinks.length} results for "{display}"
+    </h3>
   );
 };
 
