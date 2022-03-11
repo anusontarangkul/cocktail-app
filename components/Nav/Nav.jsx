@@ -42,6 +42,17 @@ const ResponsiveAppBar = () => {
     router.push('/login');
   };
 
+  const handleNavLink = (page) => {
+    handleCloseUserMenu();
+    if (page === 'Search') {
+      return router.push('/');
+    }
+    if (page === 'Saved') {
+      return router.push('/saved');
+    }
+    return;
+  };
+
   return (
     <AppBar position='static'>
       <Container maxWidth='xl'>
@@ -86,7 +97,12 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{page}</Typography>
+                  <Typography
+                    onClick={(event) => handleNavLink(page)}
+                    textAlign='center'
+                  >
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -103,7 +119,8 @@ const ResponsiveAppBar = () => {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                // onClick={handleCloseNavMenu}
+                onClick={(event) => handleNavLink(page)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
