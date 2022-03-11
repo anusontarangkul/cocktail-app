@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCocktail } from '../../redux/singleCocktail';
@@ -42,20 +42,25 @@ const Cocktail = () => {
             index++;
         }
         instructionsArray = results.drinks[0].strInstructions.match(/[^\.!\?]+[\.!\?]+/g);
-        inSaved = saved.includes(results.drinks[0].idDrink)
-
+        // inSaved = saved.includes(results.drinks[0].idDrink)
+        inSaved = saved.some(cocktail => cocktail.cocktailId === results.drinks[0].idDrink)
+        console.log('insaved updated')
+        console.log('inSaved', inSaved)
+        console.log('results', results)
     }
 
     const addToSaved = async () => {
         console.log('userid', user.uid)
         let cocktailId = results.drinks[0].idDrink
+        let cocktailName = results.drinks[0].strDrink
+        let cocktailImg = results.drinks[0].strDrinkThumb
 
 
         const cocktailRef = doc(db, "saved", user.uid);
         try {
             await setDoc(
                 cocktailRef,
-                { cocktails: saved ? [...saved, cocktailId] : [cocktailId] },
+                { cocktails: saved ? [...saved, { cocktailId, cocktailImg, cocktailName }] : [{ cocktailId, cocktailImg, cocktailName }] },
                 { merge: true }
             )
             setAlert({
@@ -74,7 +79,7 @@ const Cocktail = () => {
 
         try {
             await setDoc(cocktailRef,
-                { cocktails: saved.filter((cocktail) => cocktail !== cocktailId) },
+                { cocktails: saved.filter((cocktail) => cocktail.cocktailId !== cocktailId) },
                 { merge: true }
             )
             setAlert({
