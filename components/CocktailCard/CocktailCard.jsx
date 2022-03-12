@@ -17,7 +17,12 @@ export default function CocktailCard({ cocktail }) {
   };
   return (
     <Card
-      sx={{ width: 300, margin: '1rem auto 0rem auto', cursor: 'pointer' }}
+      sx={{
+        width: 300,
+        margin: '1rem auto 0rem auto',
+        cursor: 'pointer',
+        // border: '.1rem solid black',
+      }}
       className={styles.card}
       onClick={handleMoreInfoClick}
     >

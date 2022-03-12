@@ -79,7 +79,7 @@ const Cocktail = () => {
 
         try {
             await setDoc(cocktailRef,
-                { cocktails: saved.filter((cocktail) => cocktail.cocktailId !== cocktailId) },
+                { cocktails: saved.filter((cocktail) => cocktail.idDrink !== cocktailId) },
                 { merge: true }
             )
             setAlert({

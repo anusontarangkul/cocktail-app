@@ -1,14 +1,10 @@
 .container {
   display: flex;
   flex-direction: column;
-  background-color: #fffaf7;
+  /* background-color: #fffaf7; */
   padding-bottom: 4rem;
   /* max-width: 768px;
   overflow: hidden; */
-}
-
-.background {
-  background-color: #fffaf7;
 }
 
 @media only screen and (min-device-width: 768px) {

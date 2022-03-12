@@ -29,10 +29,11 @@
 .saveBtn {
   margin-bottom: 2rem !important;
   width: 10rem;
+  background-color: #6cc1c3;
 }
 
 .removeBtn {
   margin-bottom: 2rem !important;
   width: 10rem;
-  background-color: cadetblue;
+  background-color: #f76560;
 }
