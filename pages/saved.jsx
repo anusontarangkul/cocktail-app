@@ -4,14 +4,19 @@ import Alert from '../components/Alert/Alert';
 import { CocktailState } from '../CocktailContext';
 import SavedResults from '../components/SavedResults/SavedResults';
 import styles from './saved.module.css';
+import { auth } from '../firebase';
 
 const Saved = () => {
   const { user, saved, setSaved, setAlert } = CocktailState();
-
+  console.log('auth', auth.currentUser);
   return (
     <main>
       <Nav />
-      <h1 className={styles.title}>{saved.length} Saved Cocktails</h1>
+      {auth.currentUser ? (
+        <h1 className={styles.title}>{saved.length} Saved Cocktails</h1>
+      ) : (
+        <h1 className={styles.title}>Login to Save Cocktails</h1>
+      )}
       <SavedResults />
       <Alert />
     </main>

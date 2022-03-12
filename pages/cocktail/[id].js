@@ -13,8 +13,10 @@ import { CocktailState } from '../../CocktailContext';
 import Alert from '../../components/Alert/Alert'
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import { auth } from '../../firebase';
 
 const Cocktail = () => {
+    console.log('auth', auth.currentUser)
     const router = useRouter();
     const dispatch = useDispatch();
     const { results, status } = useSelector((state) => state.singleCocktail);
@@ -122,13 +124,15 @@ const Cocktail = () => {
                             return <li key={i} className={styles.steps}>{step}</li>
                         })}
                     </ol>
-                    {inSaved ?
+
+                    {inSaved && auth.currentUser &&
                         <Button
                             className={styles.removeBtn}
                             variant="contained"
                             onClick={removeFromSaved}
                         >Remove</Button>
-                        :
+                    }
+                    {!inSaved && auth.currentUser &&
                         <Button
                             className={styles.saveBtn}
                             variant="contained"
