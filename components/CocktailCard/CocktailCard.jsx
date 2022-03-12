@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useRouter } from 'next/router';
+import styles from './CocktailCard.module.css';
 
 export default function CocktailCard({ cocktail }) {
   console.log('cocktail', cocktail);
@@ -17,6 +18,7 @@ export default function CocktailCard({ cocktail }) {
   return (
     <Card
       sx={{ width: 300, margin: '1rem auto 0rem auto', cursor: 'pointer' }}
+      className={styles.card}
       onClick={handleMoreInfoClick}
     >
       <CardMedia
