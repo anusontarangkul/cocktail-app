@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styles from './TextResults.module.css';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 const TextResults = () => {
   const { results, display, status } = useSelector((state) => state.cocktail);
@@ -8,7 +10,13 @@ const TextResults = () => {
     return null;
   }
   if (status === 'loading') {
-    return <p>loading</p>;
+    return (
+      <Box
+        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      >
+        <CircularProgress />
+      </Box>
+    );
   }
 
   // need status for error

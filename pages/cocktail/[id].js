@@ -11,6 +11,8 @@ import { doc, setDoc } from '@firebase/firestore'
 import { db } from '../../firebase'
 import { CocktailState } from '../../CocktailContext';
 import Alert from '../../components/Alert/Alert'
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 const Cocktail = () => {
     const router = useRouter();
@@ -96,7 +98,9 @@ const Cocktail = () => {
         <>
             <Nav />
             {(status === "loading") &&
-                <p>loading</p>
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <CircularProgress />
+                </Box>
             }
             {(status === 'success') &&
                 <main className={styles.container}>
