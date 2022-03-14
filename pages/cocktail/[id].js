@@ -15,6 +15,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { auth } from '../../firebase';
 import Head from 'next/head';
+import Image from 'next/image'
 
 const Cocktail = () => {
     const router = useRouter();
@@ -111,6 +112,7 @@ const Cocktail = () => {
                         className={styles.img}
                         src={results.drinks[0].strDrinkThumb}
                         alt={results.drinks[0].strDrink}
+                        layout='fill'
                     />
                     <h2>Ingredients</h2>
                     <div className={styles.ingredientsContainer}>
