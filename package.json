@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
@@ -16,6 +16,7 @@
     "@reduxjs/toolkit": "^1.8.0",
     "firebase": "^9.6.8",
     "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.1",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -23,9 +24,14 @@
     "react-redux": "^7.2.6"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
     "autoprefixer": "^10.4.2",
+    "cross-env": "^7.0.3",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
-    "postcss": "^8.4.7"
+    "postcss": "^8.4.7",
+    "rimraf": "^3.0.2"
   }
 }
