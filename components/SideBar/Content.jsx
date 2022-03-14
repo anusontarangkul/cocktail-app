@@ -4,6 +4,7 @@ import GoogleButton from 'react-google-button';
 import { CocktailState } from '../../CocktailContext';
 import { GoogleAuthProvider, signInWithPopup, signOut } from '@firebase/auth';
 import { auth } from '../../firebase';
+import Button from '@mui/material/Button';
 
 const Content = ({ state, setState, anchor }) => {
   const { user, setAlert } = CocktailState();
@@ -65,16 +66,23 @@ const Content = ({ state, setState, anchor }) => {
   if (user) {
     return (
       <div className={styles.container}>
-        <h3 className={styles.heading}>{user.displayName}</h3>
-        <button className={styles.btn} onClick={handleSignOut}>
+        <h4 className={styles.heading}>{user.displayName}</h4>
+        {/* <button className={styles.btn} onClick={handleSignOut}>
           Sign Out
-        </button>
+        </button> */}
+        <Button
+          onClick={handleSignOut}
+          variant='contained'
+          className={styles.signOutbtn}
+        >
+          Sign Out
+        </Button>
       </div>
     );
   }
   return (
     <div className={styles.container}>
-      <h3 className={styles.heading}>Login</h3>
+      <h4 className={styles.heading}>Login</h4>
       <GoogleButton className={styles.btn} onClick={handleSignIn} />
     </div>
   );

@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import { CocktailState } from '../../CocktailContext';
 import Content from './Content';
+import styles from './SideBar.module.css';
 
 export default function SideBar() {
   const { user } = CocktailState();
@@ -41,7 +42,9 @@ export default function SideBar() {
               alt={user.displayName || user.email}
             />
           ) : (
-            <p onClick={toggleDrawer(anchor, true)}>Login</p>
+            <p onClick={toggleDrawer(anchor, true)} className={styles.login}>
+              Login
+            </p>
           )}
 
           {/* <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button> */}

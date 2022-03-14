@@ -61,7 +61,12 @@ const ResponsiveAppBar = () => {
             variant='h6'
             noWrap
             component='div'
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+            onClick={(event) => handleNavLink('Search')}
+            sx={{
+              mr: 2,
+              cursor: 'pointer',
+              display: { xs: 'none', md: 'flex' },
+            }}
           >
             The Cocktail App
           </Typography>
