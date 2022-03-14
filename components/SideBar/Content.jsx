@@ -5,9 +5,11 @@ import { CocktailState } from '../../CocktailContext';
 import { GoogleAuthProvider, signInWithPopup, signOut } from '@firebase/auth';
 import { auth } from '../../firebase';
 import Button from '@mui/material/Button';
+import { useRouter } from 'next/router';
 
 const Content = ({ state, setState, anchor }) => {
   const { user, setAlert } = CocktailState();
+  const router = useRouter();
 
   function delay(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
@@ -53,6 +55,7 @@ const Content = ({ state, setState, anchor }) => {
           message: `Successfully logged out`,
           type: 'success',
         });
+        router.reload(window.location.pathname);
       })
       .catch((error) => {
         setAlert({
