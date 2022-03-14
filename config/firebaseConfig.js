@@ -1,7 +1,6 @@
 const firebaseConfig = {
     apiKey: "AIzaSyDycdBORxQ1bJ3QL6BBpLyrBy0iGVRkCRQ",
-    // authDomain: "cocktail-afeae.firebaseapp.com",
-    authDomain: "thecocktailapp.vercel.app/",
+    authDomain: "cocktail-afeae.firebaseapp.com",
     projectId: "cocktail-afeae",
     storageBucket: "cocktail-afeae.appspot.com",
     messagingSenderId: "765671758106",
