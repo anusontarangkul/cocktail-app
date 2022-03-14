@@ -17,7 +17,6 @@ import { auth } from '../../firebase';
 import Head from 'next/head';
 
 const Cocktail = () => {
-    console.log('auth', auth.currentUser)
     const router = useRouter();
     const dispatch = useDispatch();
     const { results, status } = useSelector((state) => state.singleCocktail);
@@ -35,7 +34,6 @@ const Cocktail = () => {
 
 
     }, [router.isReady])
-    console.log('starting page')
     let instructionsArray
     let index = 1;
     let ingredientArray = [];
@@ -47,11 +45,7 @@ const Cocktail = () => {
             index++;
         }
         instructionsArray = results.drinks[0].strInstructions.match(/[^\.!\?]+[\.!\?]+/g);
-        // inSaved = saved.includes(results.drinks[0].idDrink)
         inSaved = saved.some(cocktail => cocktail.idDrink === results.drinks[0].idDrink)
-        console.log('insaved updated')
-        console.log('inSaved', inSaved)
-        console.log('results', results)
     }
 
     const addToSaved = async () => {

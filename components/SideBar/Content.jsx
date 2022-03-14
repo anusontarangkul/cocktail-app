@@ -67,9 +67,6 @@ const Content = ({ state, setState, anchor }) => {
     return (
       <div className={styles.container}>
         <h4 className={styles.heading}>{user.displayName}</h4>
-        {/* <button className={styles.btn} onClick={handleSignOut}>
-          Sign Out
-        </button> */}
         <Button
           onClick={handleSignOut}
           variant='contained'

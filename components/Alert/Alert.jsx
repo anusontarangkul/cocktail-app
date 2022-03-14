@@ -12,7 +12,6 @@ export default function BasicAlerts() {
     }
     setAlert({ open: false });
   };
-  console.log('alert', alert);
   return (
     <Snackbar
       open={alert.open}
