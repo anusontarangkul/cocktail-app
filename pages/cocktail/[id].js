@@ -14,6 +14,7 @@ import Alert from '../../components/Alert/Alert'
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { auth } from '../../firebase';
+import Head from 'next/head';
 
 const Cocktail = () => {
     console.log('auth', auth.currentUser)
@@ -98,6 +99,11 @@ const Cocktail = () => {
 
     return (
         <>
+            <Head>
+                <title>Cocktail App</title>
+                <meta name="description" content="Viewing singlecocktails" />
+                <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍹</text></svg>" />
+            </Head>
             <Nav />
             {(status === "loading") &&
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
