@@ -2,6 +2,7 @@ import React from 'react';
 
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
+import styles from './Alert.module.css';
 import { CocktailState } from '../../CocktailContext';
 
 export default function BasicAlerts() {
@@ -20,7 +21,12 @@ export default function BasicAlerts() {
       autoHideDuration={2000}
       onClose={handleClose}
     >
-      <Alert severity={alert.success} elevation={10} variant='filled'>
+      <Alert
+        severity={alert.success}
+        elevation={10}
+        variant='filled'
+        className={styles.alert}
+      >
         {alert.message}
       </Alert>
     </Snackbar>
