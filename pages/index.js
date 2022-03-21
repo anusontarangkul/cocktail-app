@@ -8,10 +8,9 @@ import SearchResults from '../components/SearchResults/SearchResults'
 import TextResults from '../components/TextResults/TextResults'
 import Alert from '../components/Alert/Alert'
 export default function Home() {
+
   const [cocktails, setCocktails] = useState([]);
   const [search, setSearch] = useState('');
-
-
 
   return (
     <div className={styles.container}>
