@@ -1,8 +1,8 @@
 .container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding-bottom: 4rem;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  padding-bottom: 4rem !important;
 }
 
 @media only screen and (min-device-width: 768px) {
