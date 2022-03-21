@@ -11,7 +11,12 @@ const SearchResults = () => {
     <div className={styles.background}>
       <Container
         maxwidth='xl'
-        sx={{ display: 'flex', flexWrap: 'wrap', paddingBottom: '4rem' }}
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          paddingBottom: '4rem',
+          justifyContent: 'space-around',
+        }}
       >
         {results.drinks &&
           results.drinks.map((cocktail, i) => {
