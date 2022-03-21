@@ -9,7 +9,10 @@ const SearchResults = () => {
 
   return (
     <div className={styles.background}>
-      <Container maxwidth='xl' className={styles.container}>
+      <Container
+        maxwidth='xl'
+        sx={{ display: 'flex', flexWrap: 'wrap', paddingBottom: '4rem' }}
+      >
         {results.drinks &&
           results.drinks.map((cocktail, i) => {
             return <CocktailCard key={i} cocktail={cocktail} />;

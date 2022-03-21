@@ -17,7 +17,7 @@ export default function CocktailCard({ cocktail }) {
     <Card
       sx={{
         width: 300,
-        margin: '1rem 1rem',
+        margin: '1.5rem 1.5rem',
         cursor: 'pointer',
       }}
       className={styles.card}
