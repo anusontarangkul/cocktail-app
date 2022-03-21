@@ -10,7 +10,6 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import SearchBar from '../SearchBar/SearchBar';
 import SideBar from '../SideBar/SideBar';
 import { useRouter } from 'next/router';
 
@@ -119,7 +118,6 @@ const ResponsiveAppBar = () => {
             {pages.map((page) => (
               <Button
                 key={page}
-                // onClick={handleCloseNavMenu}
                 onClick={(event) => handleNavLink(page)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >

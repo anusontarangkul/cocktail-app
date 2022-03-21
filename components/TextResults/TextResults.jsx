@@ -19,7 +19,6 @@ const TextResults = () => {
     );
   }
 
-  // need status for error
   return (
     <h3 className={styles.text}>
       Showing {results.drinks.length} results for &quot;{display}&quot;

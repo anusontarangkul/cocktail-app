@@ -6,7 +6,6 @@ import Container from '@mui/material/Container';
 
 const SearchResults = () => {
   const { results } = useSelector((state) => state.cocktail);
-  console.log('search update');
   return (
     <div className={styles.background}>
       <Container
